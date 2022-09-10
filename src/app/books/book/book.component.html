@@ -1,9 +1,29 @@
-<li class="book">
-  <img src="{{ book.image }}" width="100" alt="{{ book.name }}" />
-  <p class="title">
-    {{ book.name | uppercase }} by {{ book.author | uppercase }}
-  </p>
-  <p class="currency">{{ book.amount | currency: "INR" }}</p>
-  <button *ngIf="!isInCart" (click)="addToCart()">Add to Cart</button>
-  <button *ngIf="isInCart" (click)="removeFromCart()">Remove from Cart</button>
+<li class="flex border rounded-xl h-60">
+  <img
+    src="{{ book.image }}"
+    width="100"
+    alt="{{ book.name }}"
+    class="m-auto rounded-sm"
+  />
+
+  <div class="m-auto">
+    <p class="text-lg">
+      {{ book.name | uppercase }} by {{ book.author | uppercase }}
+    </p>
+    <p class="my-4">{{ book.amount | currency: "INR" }}</p>
+    <button
+      class="bg-yellow-400 rounded p-3"
+      *ngIf="!isInCart"
+      (click)="addToCart()"
+    >
+      Add to Cart
+    </button>
+    <button
+      class="bg-yellow-400 rounded p-3"
+      *ngIf="isInCart"
+      (click)="removeFromCart()"
+    >
+      Remove from Cart
+    </button>
+  </div>
 </li>
